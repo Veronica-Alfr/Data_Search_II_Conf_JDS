@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2%;
+  padding: 3%;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 0.700717787114846) 0%, rgba(9, 81, 121, 0.7511379551820728) 17%, rgba(165, 169, 241, 0.6811099439775911) 86%);
+}
+
+.div-form {
+  width: 80%;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #F8F8FF;
+  padding: 3% 5%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+label {
+  font-size: 1.1rem;
+  margin-bottom: 1%;
+}
+
+.label-text {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 0 5px;
+  padding-top: 1%;
+  height: 7rem;
+  border-radius: 15px;
+}
+
+input,
+select {
+  padding: 10px 5px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.development-container {
+  background-color: aqua;
+}
+
+.div-internal {
+  width: 100%;
+  padding: 0;
+  border: none;
+}
+
+.title-options {
+  text-align: initial;
+  font-size: 1.2rem;
+  margin-bottom: 1%;
+  font-weight: bold;
+}
+
+.options-check {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.options-check label {
+  margin-bottom: 1.5%;
+}
+
+.options-check label input {
+  margin-right: 1%;
+  margin-left: .5%;
+}
+
+.options-check-education {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.options-check-education p {
+  margin-bottom: 1%;
+}
+
+.options-check-education select {
+  width: 100%;
+}
+
+.title-select {
+  font-size: 1.1rem;
+  margin-left: -10px;
+  font-weight: bold;
+}
+
+.options-check select {
+  padding: 4px 5px;
+  margin-top: 1%;
+}
+
+.options-label {
+  display: flex;
+  background-color: aqua;
+}
+
+.button-send {
+  margin-top: 3%;
+  padding: .5rem 4rem;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: .2s ease-in;
+  z-index: 1;
+}
+
+.button-send::before {
+  content: " Enviar ";
+  width: 0%;
+  height: 100%;
+  background-color: #ffff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-radius: 10px;
+  transition: .2s ease-in;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-send:hover {
+  color: gray;
+}
+
+.button-send:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+@media (max-width: 500px) {
+  .div-form {
+    width: 90%;
+    margin-top: 3%;
+    padding: 5% 4%;
+  }
+
+  label {
+    font-size: .9rem;
+    margin-bottom: 1%;
+  }
+
+  textarea {
+    height: 4rem;
+    border-radius: 5px;
+  }
+
+  input,
+  select {
+    padding: 5px 3px;
+    border-radius: 5px;
+  }
+
+  .label-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .title-options {
+    font-size: .95rem;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+    border-bottom: 1px solid gray;
+  }
+
+  .options-check label {
+    margin-bottom: 4%;
+  }
+
+  .options-check p {
+    font-size: .8rem;
+  }
+
+  .button-send {
+    font-size: .8rem;
+    padding: .3rem 2rem;
+  }
+}

@@ -1,5 +1,6 @@
 import instance from "@/app/axios";
 import React, { useState } from "react";
+import '@/Form/FormStyle.css'
 
 const FormOne = () => {
   const [generalInfo, setGeneralInfo] = useState("");
@@ -196,9 +197,9 @@ const FormOne = () => {
   };
 
   return (
-    <form>
-      <div>
-        <label htmlFor="generalInfo">Informações gerais sobre você:</label>
+    <form className="form-container">
+      <div className="div-form">
+        <label htmlFor="generalInfo" className="label-text">Informações gerais sobre você:</label>
         <textarea
           id="generalInfo"
           value={generalInfo}
@@ -206,8 +207,8 @@ const FormOne = () => {
           placeholder="Opcional"
         />
       </div>
-      <div>
-        <label htmlFor="fullName">Nome completo:</label>
+      <div className="div-form">
+        <label htmlFor="fullName" className="label-text">Nome completo:</label>
         <input
           type="text"
           id="fullName"
@@ -215,8 +216,8 @@ const FormOne = () => {
           onChange={(e) => setFullName(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="email">Seu melhor e-mail:</label>
+      <div className="div-form">
+        <label htmlFor="email" className="label-text">Seu melhor e-mail:</label>
         <input
           type="email"
           id="email"
@@ -224,8 +225,8 @@ const FormOne = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="city">Cidade que você vive atualmente:</label>
+      <div className="div-form">
+        <label htmlFor="city" className="label-text">Cidade que você vive atualmente:</label>
         <input
           type="text"
           id="city"
@@ -233,8 +234,8 @@ const FormOne = () => {
           onChange={(e) => setCity(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="age">Sua idade:</label>
+      <div className="div-form">
+        <label htmlFor="age" className="label-text">Sua idade:</label>
         <input
           type="number"
           id="age"
@@ -243,8 +244,8 @@ const FormOne = () => {
         />
       </div>
 
-      <div>
-        <label htmlFor="race">
+      <div className="div-form">
+        <label htmlFor="race" className="label-text">
           Como você se identifica em relação a cor/raça:
         </label>
         <select
@@ -260,8 +261,8 @@ const FormOne = () => {
           <option value="Prefiro não responder">Prefiro não responder</option>
         </select>
       </div>
-      <div>
-        <label htmlFor="genderIdentity">
+      <div className="div-form">
+        <label htmlFor="genderIdentity" className="label-text">
           Como você se identifica em relação a gênero:
         </label>
         <select
@@ -277,8 +278,8 @@ const FormOne = () => {
           <option value="Prefiro não responder">Prefiro não responder</option>
         </select>
       </div>
-      <div>
-        <label htmlFor="questions">Perguntas que nos queira fazer?</label>
+      <div className="div-form">
+        <label htmlFor="questions" className="label-text">Perguntas que nos queira fazer?</label>
         <textarea
           id="questions"
           value={questions}
@@ -286,63 +287,53 @@ const FormOne = () => {
           placeholder="Opcional"
         />
       </div>
-      <div className="div-form social-involvement">
-        <p>Nos fale sobre seu envolvimento social:</p>
-        <label htmlFor="">
-          <input
-            type="checkbox"
-            name="volunteer_work"
-            value="Já realizei trabalho voluntário"
-            checked={involvement.volunteer_work}
-            onChange={handleCheckboxChange}
-          />
-          Já realizei trabalho voluntário
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="environmental_agenda"
-            value="Já atuei com a pauta ambiental e sustentável"
-            checked={involvement.environmental_agenda}
-            onChange={handleCheckboxChange}
-          />
-          Já atuei com a pauta ambiental e sustentável
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="environmental_interest"
-            value="Nunca me envolvi, mas tenho interesse"
-            checked={involvement.environmental_interest}
-            onChange={handleCheckboxChange}
-          />
-          Nunca me envolvi, mas tenho interesse
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="no_involvement"
-            value="Ainda não tenho envolvimento"
-            checked={involvement.no_involvement}
-            onChange={handleCheckboxChange}
-          />
-          Ainda não tenho envolvimento
-        </label>
-        <p>Qual rede foi predominante na sua educação primária e secundária?</p>
-        <label>
-          <select
-            id="primarySecondaryEducation"
-            value={primarySecondaryEducation}
-            onChange={(e) => setPrimarySecondaryEducation(e.target.value)}
-          >
-            <option value="Rede Pública">Rede Pública</option>
-            <option value="Rede Privada">Rede Privada</option>
-            <option value="Misto">Misto</option>
-          </select>
-        </label>
+      <div className="div-form social-involvement div-frorm">
+        <p className="title-options">Nos fale sobre seu envolvimento social:</p>
+        <div className="options-check">
+          <label htmlFor="" >
+            <input
+              type="checkbox"
+              name="volunteer_work"
+              value="Já realizei trabalho voluntário"
+              checked={involvement.volunteer_work}
+              onChange={handleCheckboxChange}
+            />
+            Já realizei trabalho voluntário
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="environmental_agenda"
+              value="Já atuei com a pauta ambiental e sustentável"
+              checked={involvement.environmental_agenda}
+              onChange={handleCheckboxChange}
+            />
+            Já atuei com a pauta ambiental e sustentável
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="environmental_interest"
+              value="Nunca me envolvi, mas tenho interesse"
+              checked={involvement.environmental_interest}
+              onChange={handleCheckboxChange}
+            />
+            Nunca me envolvi, mas tenho interesse
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="no_involvement"
+              value="Ainda não tenho envolvimento"
+              checked={involvement.no_involvement}
+              onChange={handleCheckboxChange}
+            />
+            Ainda não tenho envolvimento
+          </label>
+        </div>
       </div>
-      <div>
-        <label htmlFor="academicBackground">Formação acadêmica:</label>
+      <div className="div-form">
+        <label htmlFor="academicBackground" className="label-text">Formação acadêmica:</label>
         <select
           id="academicBackground"
           value={academicBackground}
@@ -358,446 +349,472 @@ const FormOne = () => {
             Pós Graduação, Mestrado, Doutorado, PHD
           </option>
         </select>
+        <div className="options-check-education">
+          <p className="title-select">Qual rede foi predominante na sua educação primária e secundária?</p>
+          <label>
+            <select
+              id="primarySecondaryEducation"
+              value={primarySecondaryEducation}
+              onChange={(e) => setPrimarySecondaryEducation(e.target.value)}
+            >
+              <option value="Rede Pública">Rede Pública</option>
+              <option value="Rede Privada">Rede Privada</option>
+              <option value="Misto">Misto</option>
+            </select>
+          </label>
+        </div>
       </div>
       <div className="div-form sustainable-knowledge">
-        <div className="div-form worried-climate">
-          <p>
+        <div className="worried-climate div-internal">
+          <p className="title-options">
             Como você mediria seus conhecimentos sobre a Agenda 2030 e os 17
             Objetivos de Desenvolvimento Sustentável (ODS)?
           </p>
-          <div className="knowlegde-lvl">
-            <p>O que é isso??</p>
+          <div className="options-check">
+            <div className="knowlegde-lvl div-internal">
+              <p>O que é isso??</p>
+            </div>
+            <label>
+              1
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="1"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              2
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="2"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              3
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="3"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              4
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="4"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              5
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="5"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              6
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="6"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              7
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="7"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              8
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="8"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              9
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="9"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <label>
+              10
+              <input
+                type="radio"
+                name="knowlegdeLevel"
+                value="10"
+                onChange={handleKnowlegdeLevel}
+              />
+            </label>
+            <p>Entendo muito sobre e conheço a maioria das ODSs!</p>
+          </div>
+        </div>
+      </div>
+      <div className="div-form worried-climate">
+        <p className="title-options">O quão preocupado você está com as mudanças climáticas?</p>
+        <div className="options-check">
+          <div className="nvl-worried-climate div-internal">
+            <p>Não vejo motivo para preocupação</p>
           </div>
           <label>
             1
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="1"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             2
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="2"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             3
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="3"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             4
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="4"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             5
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="5"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             6
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="6"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             7
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="7"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             8
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="8"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
           <label>
             9
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="9"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
-          10
           <label>
+            10
             <input
               type="radio"
-              name="knowlegdeLevel"
+              name="climateChanges"
               value="10"
-              onChange={handleKnowlegdeLevel}
+              onChange={handleClimateChanges}
             />
           </label>
-          <p>Entendo muito sobre e conheço a maioria das ODSs!</p>
+          <p>Perco o sono a noite!</p>
         </div>
       </div>
-      <div className="div-form worried-climate">
-        <p>O quão preocupado você está com as mudanças climáticas?</p>
-        <div className="nvl-worried-climate">
-          <p>Não vejo motivo para preocupação</p>
-        </div>
-        <label>
-          1
-          <input
-            type="radio"
-            name="climateChanges"
-            value="1"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          2
-          <input
-            type="radio"
-            name="climateChanges"
-            value="2"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          3
-          <input
-            type="radio"
-            name="climateChanges"
-            value="3"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          4
-          <input
-            type="radio"
-            name="climateChanges"
-            value="4"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          5
-          <input
-            type="radio"
-            name="climateChanges"
-            value="5"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          6
-          <input
-            type="radio"
-            name="climateChanges"
-            value="6"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          7
-          <input
-            type="radio"
-            name="climateChanges"
-            value="7"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          8
-          <input
-            type="radio"
-            name="climateChanges"
-            value="8"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          9
-          <input
-            type="radio"
-            name="climateChanges"
-            value="9"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <label>
-          10
-          <input
-            type="radio"
-            name="climateChanges"
-            value="10"
-            onChange={handleClimateChanges}
-          />
-        </label>
-        <p>Perco o sono a noite!</p>
-      </div>
-      <div>
-        <p>
+      <div className="div-form">
+        <p className="title-options">
           Na sua infância, até os 14 anos, o quanto você sente que foi exposto à
           pauta climática?
         </p>
-        <label>
-          <input
-            type="checkbox"
-            name="agenda_climatic_news"
-            checked={agendaClimatic.agenda_climatic_news}
-            onChange={handleAgendaClimaticChange}
-          />
-          Ouvia sobre o tema em noticiários
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="agenda_climatic_school"
-            checked={agendaClimatic.agenda_climatic_school}
-            onChange={handleAgendaClimaticChange}
-          />
-          Havia tópicos ambientais nas matérias da escola
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="agenda_climatic_conversations"
-            checked={agendaClimatic.agenda_climatic_conversations}
-            onChange={handleAgendaClimaticChange}
-          />
-          Conversava com amigos e familiares sobre o tema de vez em quando
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="agenda_climatic_communities"
-            checked={agendaClimatic.agenda_climatic_communities}
-            onChange={handleAgendaClimaticChange}
-          />
-          Engagei com comunidades e eventos sobre a pauta
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="agenda_climatic_without_exposure"
-            checked={agendaClimatic.agenda_climatic_without_exposure}
-            onChange={handleAgendaClimaticChange}
-          />
-          Não sinto que fui exposto
-        </label>
+        <div className="options-check">
+          <label>
+            <input
+              type="checkbox"
+              name="agenda_climatic_news"
+              checked={agendaClimatic.agenda_climatic_news}
+              onChange={handleAgendaClimaticChange}
+            />
+            Ouvia sobre o tema em noticiários
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="agenda_climatic_school"
+              checked={agendaClimatic.agenda_climatic_school}
+              onChange={handleAgendaClimaticChange}
+            />
+            Havia tópicos ambientais nas matérias da escola
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="agenda_climatic_conversations"
+              checked={agendaClimatic.agenda_climatic_conversations}
+              onChange={handleAgendaClimaticChange}
+            />
+            Conversava com amigos e familiares sobre o tema de vez em quando
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="agenda_climatic_communities"
+              checked={agendaClimatic.agenda_climatic_communities}
+              onChange={handleAgendaClimaticChange}
+            />
+            Engagei com comunidades e eventos sobre a pauta
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="agenda_climatic_without_exposure"
+              checked={agendaClimatic.agenda_climatic_without_exposure}
+              onChange={handleAgendaClimaticChange}
+            />
+            Não sinto que fui exposto
+          </label>
+        </div>
       </div>
       <div className="div-form climate-actions">
-        <p>Assinale tema e termos que você conhece consideravelmente:</p>
-        <label>
-          <input
-            type="checkbox"
-            name="green_job"
-            checked={climateActions.green_job}
-            onChange={handleClimateActionChange}
-          />
-          Emprego verde
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="esg"
-            checked={climateActions.esg}
-            onChange={handleClimateActionChange}
-          />
-          ESG
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="carbon_market"
-            checked={climateActions.carbon_market}
-            onChange={handleClimateActionChange}
-          />
-          Mercado de Carbono
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="climate_justice"
-            checked={climateActions.climate_justice}
-            onChange={handleClimateActionChange}
-          />
-          Justiça Climática
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="global_warming"
-            checked={climateActions.global_warming}
-            onChange={handleClimateActionChange}
-          />
-          Aquecimento Global
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="unafm"
-            checked={climateActions.unafm}
-            onChange={handleClimateActionChange}
-          />
-          UNAFM
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="sustainable_development"
-            checked={climateActions.sustainable_development}
-            onChange={handleClimateActionChange}
-          />
-          Desenvolvimento Sustentável
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="climate_action"
-            checked={climateActions.climate_action}
-            onChange={handleClimateActionChange}
-          />
-          Ação Climática
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="water_crisis"
-            checked={climateActions.water_crisis}
-            onChange={handleClimateActionChange}
-          />
-          Relação das mudanças climáticas nas enchentes e crise hídrica
-          brasileira
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="impact_agriculture_gas_emissions"
-            checked={climateActions.impact_agriculture_gas_emissions}
-            onChange={handleClimateActionChange}
-          />
-          Impacto da Agricultura nas emissões de gases estufa
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="importance_preserving_amazon_forest"
-            checked={climateActions.importance_preserving_amazon_forest}
-            onChange={handleClimateActionChange}
-          />
-          Importância da preservação da Floresta Amazônica
-        </label>
+        <p className="title-options">Assinale tema e termos que você conhece consideravelmente:</p>
+        <div className="options-check">
+          <label>
+            <input
+              type="checkbox"
+              name="green_job"
+              checked={climateActions.green_job}
+              onChange={handleClimateActionChange}
+            />
+            Emprego verde
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="esg"
+              checked={climateActions.esg}
+              onChange={handleClimateActionChange}
+            />
+            ESG
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="carbon_market"
+              checked={climateActions.carbon_market}
+              onChange={handleClimateActionChange}
+            />
+            Mercado de Carbono
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="climate_justice"
+              checked={climateActions.climate_justice}
+              onChange={handleClimateActionChange}
+            />
+            Justiça Climática
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="global_warming"
+              checked={climateActions.global_warming}
+              onChange={handleClimateActionChange}
+            />
+            Aquecimento Global
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="unafm"
+              checked={climateActions.unafm}
+              onChange={handleClimateActionChange}
+            />
+            UNAFM
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="sustainable_development"
+              checked={climateActions.sustainable_development}
+              onChange={handleClimateActionChange}
+            />
+            Desenvolvimento Sustentável
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="climate_action"
+              checked={climateActions.climate_action}
+              onChange={handleClimateActionChange}
+            />
+            Ação Climática
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="water_crisis"
+              checked={climateActions.water_crisis}
+              onChange={handleClimateActionChange}
+            />
+            Relação das mudanças climáticas nas enchentes e crise hídrica
+            brasileira
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="impact_agriculture_gas_emissions"
+              checked={climateActions.impact_agriculture_gas_emissions}
+              onChange={handleClimateActionChange}
+            />
+            Impacto da Agricultura nas emissões de gases estufa
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="importance_preserving_amazon_forest"
+              checked={climateActions.importance_preserving_amazon_forest}
+              onChange={handleClimateActionChange}
+            />
+            Importância da preservação da Floresta Amazônica
+          </label>
+        </div>
       </div>
       <div className="div-form ">
-        <p>
+        <p className="title-options">
           Bora testar seu conhecimento em notícias recentes? O quanto você ouviu
           falar sobre a exploração de Petróleo na Floresta Amazônica?
         </p>
-        <label>
-          <input
-            type="radio"
-            name="oilExploration"
-            value="Já estudei sobre"
-            onChange={handleOilExploration}
-          />
-          Já estudei sobre
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="oilExploration"
-            value="Vi algumas notícias sobre"
-            onChange={handleOilExploration}
-          />
-          Vi algumas notícias sobre
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="oilExploration"
-            value="Um pouco em redes sociais"
-            onChange={handleOilExploration}
-          />
-          Um pouco em redes sociais
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="oilExploration"
-            value="Não vi nada"
-            onChange={handleOilExploration}
-          />
-          Não vi nada
-        </label>
+        <div className="options-check">
+          <label>
+            <input
+              type="radio"
+              name="oilExploration"
+              value="Já estudei sobre"
+              onChange={handleOilExploration}
+            />
+            Já estudei sobre
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="oilExploration"
+              value="Vi algumas notícias sobre"
+              onChange={handleOilExploration}
+            />
+            Vi algumas notícias sobre
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="oilExploration"
+              value="Um pouco em redes sociais"
+              onChange={handleOilExploration}
+            />
+            Um pouco em redes sociais
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="oilExploration"
+              value="Não vi nada"
+              onChange={handleOilExploration}
+            />
+            Não vi nada
+          </label>
+        </div>
       </div>
       <div className="div-form consumption-and-ecologhy">
-        <p>
+        <p className="title-options">
           "Dia da Sobrecarga da Terra: Quando o consumo supera os recursos
           ecológicos do planeta" - Você leu sobre isso nas últimas semanas?
         </p>
-        <label>
-          <input
-            type="radio"
-            name="consumptionAndEcologhy"
-            value="Sim, li ou ouvi uma ou mais notícias sobre"
-            onChange={handleConsumptionAndEcologhy}
-          />
-          Sim, li ou ouvi uma ou mais notícias sobre
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="consumptionAndEcologhy"
-            value="Apenas li ou ouvi manchetes"
-            onChange={handleConsumptionAndEcologhy}
-          />
-          Apenas li ou ouvi manchetes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="consumptionAndEcologhy"
-            value="Talvez tenha ouvido falar"
-            onChange={handleConsumptionAndEcologhy}
-          />
-          Talvez tenha ouvido falar
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="consumptionAndEcologhy"
-            value="Nunca ouvi falar"
-            onChange={handleConsumptionAndEcologhy}
-          />
-          Nunca ouvi falar
-        </label>
+        <div className="options-check">
+          <label>
+            <input
+              type="radio"
+              name="consumptionAndEcologhy"
+              value="Sim, li ou ouvi uma ou mais notícias sobre"
+              onChange={handleConsumptionAndEcologhy}
+            />
+            Sim, li ou ouvi uma ou mais notícias sobre
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="consumptionAndEcologhy"
+              value="Apenas li ou ouvi manchetes"
+              onChange={handleConsumptionAndEcologhy}
+            />
+            Apenas li ou ouvi manchetes
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="consumptionAndEcologhy"
+              value="Talvez tenha ouvido falar"
+              onChange={handleConsumptionAndEcologhy}
+            />
+            Talvez tenha ouvido falar
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="consumptionAndEcologhy"
+              value="Nunca ouvi falar"
+              onChange={handleConsumptionAndEcologhy}
+            />
+            Nunca ouvi falar
+          </label>
+        </div>
       </div>
-      <div>
-        <label htmlFor="descriptionFinal">
+      <div className="div-form">
+        <label htmlFor="descriptionFinal" className="label-text">
           Descrições sobre algum assunto:
         </label>
         <textarea
@@ -807,8 +824,8 @@ const FormOne = () => {
           placeholder="Opcional"
         />
       </div>
-      <div>
-        <label htmlFor="campinasChanges">
+      <div className="div-form">
+        <label htmlFor="campinasChanges" className="label-text">
           O que você gostaria de ver acontecer na Região Metropolitana de
           Campinas acerca de sustentabilidade? Solte sua voz!
         </label>
@@ -818,8 +835,8 @@ const FormOne = () => {
           onChange={(e) => setCampinasChanges(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="comments">
+      <div className="div-form">
+        <label htmlFor="comments" className="label-text">
           Dúvidas, comentários, sugestões, feedback...
         </label>
         <textarea
@@ -828,7 +845,7 @@ const FormOne = () => {
           onChange={(e) => setComments(e.target.value)}
         />
       </div>
-      <button onClick={handleSubmit} type="submit">
+      <button onClick={handleSubmit} type="submit" className="button-send">
         Enviar
       </button>
     </form>
