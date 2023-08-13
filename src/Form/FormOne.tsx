@@ -16,36 +16,36 @@ const FormOne = () => {
   const [academicBackground, setAcademicBackground] = useState(
     "Ensino Médio Incompleto"
   );
-  const [knowlegdeLevel, setKnowlegdeLevel] = useState(0);
+  const [knowledgeLevel, setKnowlegdeLevel] = useState(0);
   const [climateChanges, setClimateChanges] = useState(0);
 
   const [involvement, setInvolvementValues] = useState({
-    volunteer_work: false,
-    environmental_agenda: false,
-    environmental_interest: false,
-    no_involvement: false,
+    volunteerWork: false,
+    environmentalAgenda: false,
+    environmentalInterest: false,
+    noInvolvement: false,
   });
 
   const [agendaClimatic, setAgendaClimatic] = useState({
-    agenda_climatic_news: false,
-    agenda_climatic_school: false,
-    agenda_climatic_conversations: false,
-    agenda_climatic_communities: false,
-    agenda_climatic_without_exposure: false,
+    agendaClimaticNews: false,
+    agendaClimaticSchool: false,
+    agendaClimaticConversations: false,
+    agendaClimaticCommunities: false,
+    agendaClimaticWithoutExposure: false,
   });
 
   const [climateActions, setClimateActions] = useState({
-    green_job: false,
-    esg: false,
-    carbon_market: false,
-    climate_justice: false,
-    global_warming: false,
+    greenJob: false,
+    // esg: false,
+    carbonMarket: false,
+    climateJustice: false,
+    globalWarming: false,
     unafm: false,
-    sustainable_development: false,
-    climate_action: false,
-    water_crisis: false,
-    impact_agriculture_gas_emissions: false,
-    importance_preserving_amazon_forest: false,
+    sustainableDevelopment: false,
+    climateAction: false,
+    waterCrisis: false,
+    impactAgricultureGasEmissions: false,
+    importancePreservingAmazonForest: false,
   });
 
   const [oilExploration, setOilExploration] = useState("");
@@ -111,19 +111,19 @@ const FormOne = () => {
         fullName,
         email,
         city,
-        ageInt,
+        age: ageInt,
         race,
         genderIdentity,
         primarySecondaryEducation,
         academicBackground,
-        involvement, // aqui vai ser um objeto com valores booleanos
+        ...involvement,
         questions,
-        knowlegdeLevel,
-        climateChanges,
-        agendaClimatic, // aqui vai ser um objeto com valores booleanos
-        climateActions, // aqui vai ser um objeto com valores booleanos
-        oilExploration,
-        consumptionAndEcologhy,
+        knowledgeLevel,
+        climateConcerns: climateChanges,
+        ...agendaClimatic,
+        ...climateActions,
+        heardAboutOilExploration: oilExploration,
+        consumptionOutweighsEcologicalResources: consumptionAndEcologhy,
         descriptionFinal,
         campinasChanges,
         comments,
@@ -152,32 +152,32 @@ const FormOne = () => {
     setClimateChanges(0);
 
     setInvolvementValues({
-      volunteer_work: false,
-      environmental_agenda: false,
-      environmental_interest: false,
-      no_involvement: false,
+      volunteerWork: false,
+      environmentalAgenda: false,
+      environmentalInterest: false,
+      noInvolvement: false,
     });
 
     setAgendaClimatic({
-      agenda_climatic_news: false,
-      agenda_climatic_school: false,
-      agenda_climatic_conversations: false,
-      agenda_climatic_communities: false,
-      agenda_climatic_without_exposure: false,
+      agendaClimaticNews: false,
+      agendaClimaticSchool: false,
+      agendaClimaticConversations: false,
+      agendaClimaticCommunities: false,
+      agendaClimaticWithoutExposure: false,
     });
 
     setClimateActions({
-      green_job: false,
-      esg: false,
-      carbon_market: false,
-      climate_justice: false,
-      global_warming: false,
+      greenJob: false,
+      // esg: false,
+      carbonMarket: false,
+      climateJustice: false,
+      globalWarming: false,
       unafm: false,
-      sustainable_development: false,
-      climate_action: false,
-      water_crisis: false,
-      impact_agriculture_gas_emissions: false,
-      importance_preserving_amazon_forest: false,
+      sustainableDevelopment: false,
+      climateAction: false,
+      waterCrisis: false,
+      impactAgricultureGasEmissions: false,
+      importancePreservingAmazonForest: false,
     });
 
     setOilExploration("");
@@ -291,9 +291,9 @@ const FormOne = () => {
         <label htmlFor="">
           <input
             type="checkbox"
-            name="volunteer_work"
+            name="volunteerWork"
             value="Já realizei trabalho voluntário"
-            checked={involvement.volunteer_work}
+            checked={involvement.volunteerWork}
             onChange={handleCheckboxChange}
           />
           Já realizei trabalho voluntário
@@ -301,9 +301,9 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="environmental_agenda"
+            name="environmentalAgenda"
             value="Já atuei com a pauta ambiental e sustentável"
-            checked={involvement.environmental_agenda}
+            checked={involvement.environmentalAgenda}
             onChange={handleCheckboxChange}
           />
           Já atuei com a pauta ambiental e sustentável
@@ -311,9 +311,9 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="environmental_interest"
+            name="environmentalInterest"
             value="Nunca me envolvi, mas tenho interesse"
-            checked={involvement.environmental_interest}
+            checked={involvement.environmentalInterest}
             onChange={handleCheckboxChange}
           />
           Nunca me envolvi, mas tenho interesse
@@ -321,9 +321,9 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="no_involvement"
+            name="noInvolvement"
             value="Ainda não tenho envolvimento"
-            checked={involvement.no_involvement}
+            checked={involvement.noInvolvement}
             onChange={handleCheckboxChange}
           />
           Ainda não tenho envolvimento
@@ -566,8 +566,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="agenda_climatic_news"
-            checked={agendaClimatic.agenda_climatic_news}
+            name="agendaClimaticNews"
+            checked={agendaClimatic.agendaClimaticNews}
             onChange={handleAgendaClimaticChange}
           />
           Ouvia sobre o tema em noticiários
@@ -575,8 +575,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="agenda_climatic_school"
-            checked={agendaClimatic.agenda_climatic_school}
+            name="agendaClimaticSchool"
+            checked={agendaClimatic.agendaClimaticSchool}
             onChange={handleAgendaClimaticChange}
           />
           Havia tópicos ambientais nas matérias da escola
@@ -584,8 +584,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="agenda_climatic_conversations"
-            checked={agendaClimatic.agenda_climatic_conversations}
+            name="agendaClimaticConversations"
+            checked={agendaClimatic.agendaClimaticConversations}
             onChange={handleAgendaClimaticChange}
           />
           Conversava com amigos e familiares sobre o tema de vez em quando
@@ -593,8 +593,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="agenda_climatic_communities"
-            checked={agendaClimatic.agenda_climatic_communities}
+            name="agendaClimaticCommunities"
+            checked={agendaClimatic.agendaClimaticCommunities}
             onChange={handleAgendaClimaticChange}
           />
           Engagei com comunidades e eventos sobre a pauta
@@ -602,8 +602,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="agenda_climatic_without_exposure"
-            checked={agendaClimatic.agenda_climatic_without_exposure}
+            name="agendaClimaticWithoutExposure"
+            checked={agendaClimatic.agendaClimaticWithoutExposure}
             onChange={handleAgendaClimaticChange}
           />
           Não sinto que fui exposto
@@ -614,13 +614,13 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="green_job"
-            checked={climateActions.green_job}
+            name="greenJob"
+            checked={climateActions.greenJob}
             onChange={handleClimateActionChange}
           />
           Emprego verde
         </label>
-        <label>
+        {/* <label>
           <input
             type="checkbox"
             name="esg"
@@ -628,12 +628,12 @@ const FormOne = () => {
             onChange={handleClimateActionChange}
           />
           ESG
-        </label>
+        </label> */}
         <label>
           <input
             type="checkbox"
-            name="carbon_market"
-            checked={climateActions.carbon_market}
+            name="carbonMarket"
+            checked={climateActions.carbonMarket}
             onChange={handleClimateActionChange}
           />
           Mercado de Carbono
@@ -641,8 +641,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="climate_justice"
-            checked={climateActions.climate_justice}
+            name="climateJustice"
+            checked={climateActions.climateJustice}
             onChange={handleClimateActionChange}
           />
           Justiça Climática
@@ -650,8 +650,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="global_warming"
-            checked={climateActions.global_warming}
+            name="globalWarming"
+            checked={climateActions.globalWarming}
             onChange={handleClimateActionChange}
           />
           Aquecimento Global
@@ -668,8 +668,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="sustainable_development"
-            checked={climateActions.sustainable_development}
+            name="sustainableDevelopment"
+            checked={climateActions.sustainableDevelopment}
             onChange={handleClimateActionChange}
           />
           Desenvolvimento Sustentável
@@ -677,8 +677,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="climate_action"
-            checked={climateActions.climate_action}
+            name="climateAction"
+            checked={climateActions.climateAction}
             onChange={handleClimateActionChange}
           />
           Ação Climática
@@ -686,8 +686,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="water_crisis"
-            checked={climateActions.water_crisis}
+            name="waterCrisis"
+            checked={climateActions.waterCrisis}
             onChange={handleClimateActionChange}
           />
           Relação das mudanças climáticas nas enchentes e crise hídrica
@@ -696,8 +696,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="impact_agriculture_gas_emissions"
-            checked={climateActions.impact_agriculture_gas_emissions}
+            name="impactAgricultureGasEmissions"
+            checked={climateActions.impactAgricultureGasEmissions}
             onChange={handleClimateActionChange}
           />
           Impacto da Agricultura nas emissões de gases estufa
@@ -705,8 +705,8 @@ const FormOne = () => {
         <label>
           <input
             type="checkbox"
-            name="importance_preserving_amazon_forest"
-            checked={climateActions.importance_preserving_amazon_forest}
+            name="importancePreservingAmazonForest"
+            checked={climateActions.importancePreservingAmazonForest}
             onChange={handleClimateActionChange}
           />
           Importância da preservação da Floresta Amazônica
