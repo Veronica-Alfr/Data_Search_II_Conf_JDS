@@ -1,6 +1,8 @@
 import instance from "@/app/axios";
 import React, { useState } from "react";
 import "@/Form/FormStyle.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FormOne = () => {
   const [generalInfo, setGeneralInfo] = useState("");
@@ -20,6 +22,21 @@ const FormOne = () => {
   const [knowledgeLevel, setKnowlegdeLevel] = useState(0);
   const [climateChanges, setClimateChanges] = useState(0);
 
+  const [errorEmptyNameField, setErrorEmptyNameField] =
+    useState<boolean>(false);
+  const [errorEmptyEmailField, setErrorEmptyEmailField] =
+    useState<boolean>(false);
+  const [errorEmailValidation, setErrorEmailValidation] =
+    useState<boolean>(false);
+  const [errorEmptyCityField, setErrorEmptyCityField] =
+    useState<boolean>(false);
+  const [errorEmptyAgeField, setErrorEmptyAgeField] = useState<boolean>(false);
+
+  // const [errorEmptyKnowlegdeLevelField, setErrorEmptyKnowlegdeLevelField] =
+  //   useState<boolean>(false);
+  // const [errorEmptyClimateChangesField, setErrorEmptyClimateChangesField] =
+  //   useState<boolean>(false);
+
   const [involvement, setInvolvementValues] = useState({
     volunteerWork: false,
     environmentalAgenda: false,
@@ -37,7 +54,7 @@ const FormOne = () => {
 
   const [climateActions, setClimateActions] = useState({
     greenJob: false,
-    // esg: false,
+    esg: false,
     carbonMarket: false,
     climateJustice: false,
     globalWarming: false,
@@ -54,6 +71,18 @@ const FormOne = () => {
   const [descriptionFinal, setDescriptionFinal] = useState("");
   const [campinasChanges, setCampinasChanges] = useState("");
   const [comments, setComments] = useState("");
+  const [dataPermission, setDataPermission] = useState(false);
+
+  // const [errorEmptyOilExplorationField, setErrorEmptyOilExplorationField] =
+  //   useState<boolean>(false);
+  // const [
+  //   errorEmptyConsumptionAndEcologhyField,
+  //   setErrorEmptyConsumptionAndEcologhyField,
+  // ] = useState<boolean>(false);
+  const [errorEmptyCampinasChangesField, setErrorEmptyCampinasChangesField] =
+    useState<boolean>(false);
+  const [errorEmptyCommentsField, setErrorEmptyCommentsField] =
+    useState<boolean>(false);
 
   const handleKnowlegdeLevel = (event: React.ChangeEvent<HTMLInputElement>) => {
     setKnowlegdeLevel(parseInt(event.target.value));
@@ -104,6 +133,10 @@ const FormOne = () => {
     }));
   };
 
+  const handleDataPermission = () => {
+    setDataPermission(!dataPermission);
+  };
+
   const createIntervieweeForm = async () => {
     const ageInt = parseInt(age);
     try {
@@ -128,6 +161,7 @@ const FormOne = () => {
         descriptionFinal,
         campinasChanges,
         comments,
+        dataPermission,
       });
 
       const data = response.data;
@@ -169,7 +203,7 @@ const FormOne = () => {
 
     setClimateActions({
       greenJob: false,
-      // esg: false,
+      esg: false,
       carbonMarket: false,
       climateJustice: false,
       globalWarming: false,
@@ -188,10 +222,52 @@ const FormOne = () => {
     setComments("");
   };
 
+  const validationFields = () => {
+    if (fullName === "" && fullName.length < 12) setErrorEmptyNameField(true);
+    if (email === "") {
+      setErrorEmptyEmailField(true);
+      setErrorEmailValidation(false);
+    }
+    if (city === "") setErrorEmptyCityField(true);
+    if (age === "") setErrorEmptyAgeField(true);
+
+    if (campinasChanges === "") {
+      setErrorEmptyCampinasChangesField(true);
+    }
+    if (comments === "") setErrorEmptyCommentsField(true);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    createIntervieweeForm();
+    validationFields();
+
+    const emailRegex = /\S+@\S+\.\S+/;
+    const validateEmail = emailRegex.test(email);
+
+    if (email !== "" && !validateEmail) setErrorEmailValidation(true);
+
+    if (
+      validateEmail &&
+      fullName !== "" &&
+      city !== "" &&
+      age !== "" &&
+      campinasChanges !== "" &&
+      comments !== ""
+    ) {
+      createIntervieweeForm();
+
+      toast.success("Formulário enviado!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
 
     resetStateValues();
   };
@@ -214,44 +290,67 @@ const FormOne = () => {
           Nome completo:
         </label>
         <input
+          className={`${errorEmptyNameField && "input-error"}`}
           type="text"
           id="fullName"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
         />
+        {errorEmptyNameField && (
+          <p className="error-message">
+            Nome é obrigatório e deve ser completo.
+          </p>
+        )}
       </div>
       <div className="div-form">
         <label htmlFor="email" className="label-text">
           Seu melhor e-mail:
         </label>
         <input
+          className={`${
+            (errorEmptyEmailField || errorEmailValidation) && "input-error"
+          }`}
           type="email"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {errorEmptyEmailField && (
+          <p className="error-message">Email é obrigatório.</p>
+        )}
+        {errorEmailValidation && (
+          <p className="error-message">Email inválido.</p>
+        )}
       </div>
       <div className="div-form">
         <label htmlFor="city" className="label-text">
           Cidade que você vive atualmente:
         </label>
         <input
+          className={`${errorEmptyCityField && "input-error"}`}
           type="text"
           id="city"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
+        {errorEmptyCityField && (
+          <p className="error-message">Cidade é obrigatório.</p>
+        )}
       </div>
       <div className="div-form">
         <label htmlFor="age" className="label-text">
           Sua idade:
         </label>
         <input
-          type="number"
+          className={`${errorEmptyAgeField && "input-error"}`}
+          type="text"
           id="age"
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
+        {errorEmptyAgeField && (
+          <p className="error-message">Idade é obrigatório.</p>
+        )}
       </div>
       <div className="div-form">
         <label htmlFor="race" className="label-text">
@@ -651,15 +750,15 @@ const FormOne = () => {
             />
             Emprego verde
           </label>
-          {/* <label>
-          <input
-            type="checkbox"
-            name="esg"
-            checked={climateActions.esg}
-            onChange={handleClimateActionChange}
-          />
-          ESG
-        </label> */}
+          <label>
+            <input
+              type="checkbox"
+              name="esg"
+              checked={climateActions.esg}
+              onChange={handleClimateActionChange}
+            />
+            ESG
+          </label>
           <label>
             <input
               type="checkbox"
@@ -849,24 +948,48 @@ const FormOne = () => {
           Campinas acerca de sustentabilidade? Solte sua voz!
         </label>
         <textarea
+          className={`${errorEmptyCampinasChangesField && "textarea-error"}`}
           id="campinasChanges"
           value={campinasChanges}
           onChange={(e) => setCampinasChanges(e.target.value)}
         />
+        {errorEmptyCampinasChangesField && (
+          <p className="error-message">Este campo é obrigatório.</p>
+        )}
       </div>
       <div className="div-form">
         <label htmlFor="comments" className="label-text">
           Dúvidas, comentários, sugestões, feedback...
         </label>
         <textarea
+          className={`${errorEmptyCommentsField && "textarea-error"}`}
           id="comments"
           value={comments}
           onChange={(e) => setComments(e.target.value)}
         />
+        {errorEmptyCommentsField && (
+          <p className="error-message">Este campo é obrigatório.</p>
+        )}
+      </div>
+      <div className="div-form">
+        <div className="div-permission">
+          <label htmlFor="permission" className="label-text">
+            Eu concordo em seder meus dados, de forma anônima, para o uso em
+            pesquisas pela Hesac
+          </label>
+          <input
+            type="checkbox"
+            name="dataPermission"
+            value="agree"
+            checked={dataPermission}
+            onChange={handleDataPermission}
+          />
+        </div>
       </div>
       <button onClick={handleSubmit} type="submit" className="button-send">
         Enviar
       </button>
+      <ToastContainer />
     </form>
   );
 };

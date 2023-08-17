@@ -1,10 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.error-message {
+  color: rgb(220, 17, 17);
+
+  font-size: 0.85rem;
+
+  margin-top: 1%;
+}
+
+.input-error,
+.textarea-error {
+  border: 0.05rem solid rgb(220, 17, 17);
 }
 
 .form-container {
@@ -14,7 +27,12 @@
   align-items: center;
   gap: 2%;
   padding: 3%;
-  background: linear-gradient(90deg, rgba(2, 0, 36, 0.700717787114846) 0%, rgba(9, 81, 121, 0.7511379551820728) 17%, rgba(165, 169, 241, 0.6811099439775911) 86%);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 0.700717787114846) 0%,
+    rgba(9, 81, 121, 0.7511379551820728) 17%,
+    rgba(165, 169, 241, 0.6811099439775911) 86%
+  );
 }
 
 .div-form {
@@ -23,7 +41,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #F8F8FF;
+  background-color: #f8f8ff;
   padding: 3% 5%;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -85,7 +103,7 @@ select {
 
 .options-check label input {
   margin-right: 1%;
-  margin-left: .5%;
+  margin-left: 0.5%;
 }
 
 .options-check-education {
@@ -119,7 +137,7 @@ select {
 
 .button-send {
   margin-top: 3%;
-  padding: .5rem 4rem;
+  padding: 0.5rem 4rem;
   background-color: transparent;
   border: 1px solid white;
   color: white;
@@ -127,7 +145,7 @@ select {
   border-radius: 10px;
   cursor: pointer;
   position: relative;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   z-index: 1;
 }
 
@@ -140,7 +158,7 @@ select {
   top: 0;
   left: 50%;
   border-radius: 10px;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   z-index: 0;
   overflow: hidden;
   display: flex;
@@ -157,6 +175,12 @@ select {
   left: 0;
 }
 
+.div-permission {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 500px) {
   .div-form {
     width: 90%;
@@ -165,7 +189,7 @@ select {
   }
 
   label {
-    font-size: .9rem;
+    font-size: 0.9rem;
     margin-bottom: 1%;
   }
 
@@ -186,10 +210,16 @@ select {
   }
 
   .title-options {
-    font-size: .95rem;
+    font-size: 0.95rem;
     padding-bottom: 5%;
     margin-bottom: 5%;
     border-bottom: 1px solid gray;
+  }
+
+  .title-select {
+    font-size: 0.95rem;
+    margin-left: -10px;
+    font-weight: bold;
   }
 
   .options-check label {
@@ -197,11 +227,11 @@ select {
   }
 
   .options-check p {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .button-send {
-    font-size: .8rem;
-    padding: .3rem 2rem;
+    font-size: 0.8rem;
+    padding: 0.3rem 2rem;
   }
 }
