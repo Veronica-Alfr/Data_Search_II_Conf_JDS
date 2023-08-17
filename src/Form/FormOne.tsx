@@ -54,6 +54,7 @@ const FormOne = () => {
   const [descriptionFinal, setDescriptionFinal] = useState("");
   const [campinasChanges, setCampinasChanges] = useState("");
   const [comments, setComments] = useState("");
+  const [dataPermission, setDataPermission] = useState(false);
 
   const handleKnowlegdeLevel = (event: React.ChangeEvent<HTMLInputElement>) => {
     setKnowlegdeLevel(parseInt(event.target.value));
@@ -91,6 +92,14 @@ const FormOne = () => {
       ...prevValues,
       [name]: checked,
     }));
+  };
+
+  const handleDataPermission = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, checked } = event.target;
+    
+    setDataPermission(!dataPermission) 
   };
 
   const handleClimateActionChange = (
@@ -863,6 +872,18 @@ const FormOne = () => {
           value={comments}
           onChange={(e) => setComments(e.target.value)}
         />
+      </div>
+      <div className="div-form">
+        <label htmlFor="comments" className="label-text">
+          Eu concordo em seder meus dados, de forma anônima, para o uso em pesquisas pela hesac
+        </label>
+        <input
+              type="checkbox"
+              name="dataPermission"
+              value="Agree"
+              checked={dataPermission}
+              onChange={handleCheckboxChange}
+            />
       </div>
       <button onClick={handleSubmit} type="submit" className="button-send">
         Enviar
