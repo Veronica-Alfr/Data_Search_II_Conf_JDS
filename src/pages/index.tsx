@@ -1,7 +1,7 @@
 import FormOne from "@/Form/FormOne";
 import React from "react";
 
-const Home = () => {
+const App = () => {
   return (
     <main>
       <FormOne />
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default App;
