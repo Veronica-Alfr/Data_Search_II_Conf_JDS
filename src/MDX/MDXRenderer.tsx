@@ -8,7 +8,11 @@ const components = {
 };
 
 const MDXRenderer: React.FC = () => {
-  return <MDXProvider components={components}>{ExampleMDX}</MDXProvider>;
+  return (
+    <MDXProvider components={components}>
+      <ExampleMDX />
+    </MDXProvider>
+  );
 };
 
 export default MDXRenderer;
