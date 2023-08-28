@@ -273,7 +273,7 @@ const FormOne = () => {
   };
 
   return (
-    <form className="form-container">
+    <form id="Form" className="form-container">
       <div className="div-form">
         <label htmlFor="generalInfo" className="label-text">
           Informações gerais sobre você:
