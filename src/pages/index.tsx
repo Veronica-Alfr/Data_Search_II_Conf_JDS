@@ -1,12 +1,13 @@
 import FormOne from "@/Form/FormOne";
-import MDXRenderer from "@/MDX/MDXRenderer";
 import React from "react";
+import HomeHESAC from "./Home/HomeHESAC";
+import "./global.css";
 
 const App = () => {
   return (
     <main>
-      <FormOne />
-      <MDXRenderer />
+      <HomeHESAC />
+      {/* <FormOne /> */}
     </main>
   );
 };

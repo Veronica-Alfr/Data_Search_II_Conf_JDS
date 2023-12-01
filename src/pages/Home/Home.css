@@ -1,0 +1,66 @@
+.home {
+  position: relative;
+
+  background-color: rgb(43, 192, 226);
+  height: 100vh;
+}
+
+.wave-3 {
+  position: absolute;
+
+  bottom: 15%;
+  right: 0;
+  left: 0;
+}
+
+.path-wave-3 {
+  animation: moveWave3 3s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave3 {
+  from {
+    transform: translateX(-2000px);
+
+    transform: scaleX(2.9);
+  }
+}
+
+.wave-2 {
+  position: absolute;
+
+  bottom: 10%;
+  right: 0;
+  left: 0;
+}
+
+.path-wave-2 {
+  animation: moveWave2 3s 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave2 {
+  from {
+    transform: translateX(-1800px);
+
+    transform: scaleX(2.15);
+  }
+}
+
+.wave-1 {
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.path-wave-1 {
+  animation: moveWave1 3s 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave1 {
+  from {
+    transform: translateX(-1600px);
+
+    transform: scaleX(1.75);
+  }
+}
