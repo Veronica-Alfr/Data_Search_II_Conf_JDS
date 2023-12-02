@@ -13,7 +13,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="div-link div-link-form">
-          <Link className="link" href="/form">
+          <Link className="link" href="#form">
             Formulário
           </Link>
         </div>

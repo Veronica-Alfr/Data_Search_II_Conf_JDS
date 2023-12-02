@@ -220,21 +220,46 @@ const FormOne = () => {
     setDescriptionFinal("");
     setCampinasChanges("");
     setComments("");
+    setDataPermission(false);
   };
 
   const validationFields = () => {
-    if (fullName === "" && fullName.length < 12) setErrorEmptyNameField(true);
+    if (fullName === "" || fullName.length < 12) {
+      setErrorEmptyNameField(true);
+    } else {
+      setErrorEmptyNameField(false);
+    }
+
     if (email === "") {
       setErrorEmptyEmailField(true);
       setErrorEmailValidation(false);
+    } else {
+      setErrorEmptyEmailField(false);
     }
-    if (city === "") setErrorEmptyCityField(true);
-    if (age === "") setErrorEmptyAgeField(true);
+
+    if (city === "") {
+      setErrorEmptyCityField(true);
+    } else {
+      setErrorEmptyCityField(false);
+    }
+
+    if (age === "") {
+      setErrorEmptyAgeField(true);
+    } else {
+      setErrorEmptyAgeField(false);
+    }
 
     if (campinasChanges === "") {
       setErrorEmptyCampinasChangesField(true);
+    } else {
+      setErrorEmptyCampinasChangesField(false);
     }
-    if (comments === "") setErrorEmptyCommentsField(true);
+
+    if (comments === "") {
+      setErrorEmptyCommentsField(true);
+    } else {
+      setErrorEmptyCommentsField(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
@@ -245,7 +270,11 @@ const FormOne = () => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validateEmail = emailRegex.test(email);
 
-    if (email !== "" && !validateEmail) setErrorEmailValidation(true);
+    if (email !== "" && !validateEmail) {
+      setErrorEmailValidation(true);
+    } else {
+      setErrorEmailValidation(false);
+    }
 
     if (
       validateEmail &&
@@ -267,9 +296,9 @@ const FormOne = () => {
         progress: undefined,
         theme: "dark",
       });
-    }
 
-    resetStateValues();
+      resetStateValues();
+    }
   };
 
   return (
@@ -976,7 +1005,7 @@ const FormOne = () => {
       <div className="div-form">
         <div className="div-permission">
           <label htmlFor="permission" className="label-text">
-            Eu concordo em seder meus dados, de forma anônima, para o uso em
+            Eu concordo em ceder meus dados, de forma anônima, para o uso em
             pesquisas pela Hesac
           </label>
           <input
