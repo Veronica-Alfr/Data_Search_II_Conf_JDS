@@ -74,32 +74,45 @@ select {
   background-color: aqua;
 }
 
-.div-internal {
-  width: 100%;
-  padding: 0;
-  border: none;
-}
-
 .title-options {
   text-align: initial;
   font-size: 1.2rem;
-  margin-bottom: 1%;
+  margin-bottom: 1.5%;
   font-weight: bold;
 }
 
 .options-check {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
-}
-
-.options-check label {
-  margin-bottom: 1.5%;
+  padding-left: 0.6rem;
 }
 
 .options-check label input {
   margin-right: 1%;
   margin-left: 0.5%;
+}
+
+.container-options-and-question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-options-and-question p {
+  margin-top: 2%;
+}
+
+.container-options {
+  padding: 2%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-options label {
+  padding: 1%;
+  text-align: center;
 }
 
 .options-check-education {
