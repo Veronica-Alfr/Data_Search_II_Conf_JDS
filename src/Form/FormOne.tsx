@@ -220,21 +220,46 @@ const FormOne = () => {
     setDescriptionFinal("");
     setCampinasChanges("");
     setComments("");
+    setDataPermission(false);
   };
 
   const validationFields = () => {
-    if (fullName === "" && fullName.length < 12) setErrorEmptyNameField(true);
+    if (fullName === "" || fullName.length < 12) {
+      setErrorEmptyNameField(true);
+    } else {
+      setErrorEmptyNameField(false);
+    }
+
     if (email === "") {
       setErrorEmptyEmailField(true);
       setErrorEmailValidation(false);
+    } else {
+      setErrorEmptyEmailField(false);
     }
-    if (city === "") setErrorEmptyCityField(true);
-    if (age === "") setErrorEmptyAgeField(true);
+
+    if (city === "") {
+      setErrorEmptyCityField(true);
+    } else {
+      setErrorEmptyCityField(false);
+    }
+
+    if (age === "") {
+      setErrorEmptyAgeField(true);
+    } else {
+      setErrorEmptyAgeField(false);
+    }
 
     if (campinasChanges === "") {
       setErrorEmptyCampinasChangesField(true);
+    } else {
+      setErrorEmptyCampinasChangesField(false);
     }
-    if (comments === "") setErrorEmptyCommentsField(true);
+
+    if (comments === "") {
+      setErrorEmptyCommentsField(true);
+    } else {
+      setErrorEmptyCommentsField(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
@@ -245,7 +270,11 @@ const FormOne = () => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validateEmail = emailRegex.test(email);
 
-    if (email !== "" && !validateEmail) setErrorEmailValidation(true);
+    if (email !== "" && !validateEmail) {
+      setErrorEmailValidation(true);
+    } else {
+      setErrorEmailValidation(false);
+    }
 
     if (
       validateEmail &&
@@ -267,13 +296,13 @@ const FormOne = () => {
         progress: undefined,
         theme: "dark",
       });
-    }
 
-    resetStateValues();
+      resetStateValues();
+    }
   };
 
   return (
-    <form id="Form" className="form-container">
+    <form id="form" className="form-container">
       <div className="div-form">
         <label htmlFor="generalInfo" className="label-text">
           Informações gerais sobre você:
@@ -479,106 +508,108 @@ const FormOne = () => {
         </div>
       </div>
       <div className="div-form sustainable-knowledge">
-        <div className="worried-climate div-internal">
+        <div className="worried-climate">
           <p className="title-options">
             Como você mediria seus conhecimentos sobre a Agenda 2030 e os 17
             Objetivos de Desenvolvimento Sustentável (ODS)?
           </p>
           <div className="options-check">
-            <div className="knowlegde-lvl div-internal">
+            <div className="container-options-and-question">
               <p>O que é isso??</p>
+              <div className="container-options">
+                <label>
+                  1
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="1"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  2
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="2"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  3
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="3"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  4
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="4"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  5
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="5"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  6
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="6"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  7
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="7"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  8
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="8"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  9
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="9"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+                <label>
+                  10
+                  <input
+                    type="radio"
+                    name="knowledgeLevel"
+                    value="10"
+                    onChange={handleKnowlegdeLevel}
+                  />
+                </label>
+              </div>
+              <p>Entendo muito sobre e conheço a maioria das ODSs!</p>
             </div>
-            <label>
-              1
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="1"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              2
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="2"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              3
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="3"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              4
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="4"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              5
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="5"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              6
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="6"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              7
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="7"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              8
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="8"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              9
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="9"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <label>
-              10
-              <input
-                type="radio"
-                name="knowledgeLevel"
-                value="10"
-                onChange={handleKnowlegdeLevel}
-              />
-            </label>
-            <p>Entendo muito sobre e conheço a maioria das ODSs!</p>
           </div>
         </div>
       </div>
@@ -586,100 +617,100 @@ const FormOne = () => {
         <p className="title-options">
           O quão preocupado você está com as mudanças climáticas?
         </p>
-        <div className="options-check">
-          <div className="nvl-worried-climate div-internal">
-            <p>Não vejo motivo para preocupação</p>
+        <div className="container-options-and-question">
+          <p>Não vejo motivo para preocupação</p>
+          <div className="container-options">
+            <label>
+              1
+              <input
+                type="radio"
+                name="climateChanges"
+                value="1"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              2
+              <input
+                type="radio"
+                name="climateChanges"
+                value="2"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              3
+              <input
+                type="radio"
+                name="climateChanges"
+                value="3"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              4
+              <input
+                type="radio"
+                name="climateChanges"
+                value="4"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              5
+              <input
+                type="radio"
+                name="climateChanges"
+                value="5"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              6
+              <input
+                type="radio"
+                name="climateChanges"
+                value="6"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              7
+              <input
+                type="radio"
+                name="climateChanges"
+                value="7"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              8
+              <input
+                type="radio"
+                name="climateChanges"
+                value="8"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              9
+              <input
+                type="radio"
+                name="climateChanges"
+                value="9"
+                onChange={handleClimateChanges}
+              />
+            </label>
+            <label>
+              10
+              <input
+                type="radio"
+                name="climateChanges"
+                value="10"
+                onChange={handleClimateChanges}
+              />
+            </label>
           </div>
-          <label>
-            1
-            <input
-              type="radio"
-              name="climateChanges"
-              value="1"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            2
-            <input
-              type="radio"
-              name="climateChanges"
-              value="2"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            3
-            <input
-              type="radio"
-              name="climateChanges"
-              value="3"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            4
-            <input
-              type="radio"
-              name="climateChanges"
-              value="4"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            5
-            <input
-              type="radio"
-              name="climateChanges"
-              value="5"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            6
-            <input
-              type="radio"
-              name="climateChanges"
-              value="6"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            7
-            <input
-              type="radio"
-              name="climateChanges"
-              value="7"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            8
-            <input
-              type="radio"
-              name="climateChanges"
-              value="8"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            9
-            <input
-              type="radio"
-              name="climateChanges"
-              value="9"
-              onChange={handleClimateChanges}
-            />
-          </label>
-          <label>
-            10
-            <input
-              type="radio"
-              name="climateChanges"
-              value="10"
-              onChange={handleClimateChanges}
-            />
-          </label>
           <p>Perco o sono a noite!</p>
         </div>
       </div>
@@ -974,7 +1005,7 @@ const FormOne = () => {
       <div className="div-form">
         <div className="div-permission">
           <label htmlFor="permission" className="label-text">
-            Eu concordo em seder meus dados, de forma anônima, para o uso em
+            Eu concordo em ceder meus dados, de forma anônima, para o uso em
             pesquisas pela Hesac
           </label>
           <input

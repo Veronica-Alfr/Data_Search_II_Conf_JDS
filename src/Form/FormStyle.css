@@ -1,12 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
-
 .error-message {
   color: rgb(220, 17, 17);
 
@@ -21,22 +12,27 @@
 }
 
 .form-container {
-  width: 100%;
+  font-family: "Roboto", sans-serif;
+
+  padding: 3%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 2%;
-  padding: 3%;
-  background: linear-gradient(
+
+  background: #00cb5f;
+  /* background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 0.700717787114846) 0%,
     rgba(9, 81, 121, 0.7511379551820728) 17%,
     rgba(165, 169, 241, 0.6811099439775911) 86%
-  );
+  ); */
 }
 
 .div-form {
-  width: 80%;
+  width: 70%;
   margin-top: 1%;
   display: flex;
   flex-direction: column;
@@ -78,32 +74,45 @@ select {
   background-color: aqua;
 }
 
-.div-internal {
-  width: 100%;
-  padding: 0;
-  border: none;
-}
-
 .title-options {
   text-align: initial;
   font-size: 1.2rem;
-  margin-bottom: 1%;
+  margin-bottom: 1.5%;
   font-weight: bold;
 }
 
 .options-check {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
-}
-
-.options-check label {
-  margin-bottom: 1.5%;
+  padding-left: 0.6rem;
 }
 
 .options-check label input {
   margin-right: 1%;
   margin-left: 0.5%;
+}
+
+.container-options-and-question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-options-and-question p {
+  margin-top: 2%;
+}
+
+.container-options {
+  padding: 2%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-options label {
+  padding: 1%;
+  text-align: center;
 }
 
 .options-check-education {
@@ -167,7 +176,8 @@ select {
 }
 
 .button-send:hover {
-  color: gray;
+  /* color: #02a836; */
+  color: rgb(42, 41, 41);
 }
 
 .button-send:hover::before {
